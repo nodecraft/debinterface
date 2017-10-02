@@ -82,7 +82,7 @@ class TestInterfacesReader(unittest.TestCase):
             'down': [],
             'source': 'static',
             'netmask': '255.255.255.0',
-            'address': '192.168.0.250',
+            'address': '192.168.0.251',
             'pre-up': [],
             'post-down': [],
             'post-up': [],
