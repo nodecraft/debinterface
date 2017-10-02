@@ -153,7 +153,7 @@ class NetworkAdapterValidation(object):
                 self.validate_ip(val, opt)
             elif validations['type'] == 'IPList':
                 for ip in val:
-                self.validate_ip(ip, opt)
+                    self.validate_ip(ip, opt)
             elif validations["type"] == "BROADCAST_IP":
                 self.validate_broadcast_ip(val, opt)
             else:

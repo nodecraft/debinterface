@@ -151,7 +151,8 @@ class InterfacesWriter(object):
                 value = ifAttributes[field]
                 if value and value != 'None':
                     if isinstance(value, list):
-                        d = dict(varient=field, value=" ".join(ifAttributes[field]))
+                        d = dict(varient=field, 
+                            value=" ".join(ifAttributes[field]))
                     else:
                         d = dict(varient=field, value=ifAttributes[field])
                     interfaces.write(self._cmd.substitute(d))
