@@ -36,13 +36,13 @@ class TestInterfacesReader(unittest.TestCase):
             None
         )
         self.assertNotEqual(eth1, None)
-        self.assertEqual(eth1.attributes["dns-nameservers"], "8.8.8.8")
+        self.assertEqual(eth1.attributes["dns-nameservers"], ["8.8.8.8"])
 
     def test_interfaces2(self):
         """All adapters should validate"""
         reader = InterfacesReader(INF2_PATH)
         adapters = reader.parse_interfaces()
-        self.assertEqual(len(adapters), 1)
+        self.assertEqual(len(adapters), 2)
         for adapter in adapters:
             adapter.validateAll()
         self.assertEqual(adapters[0].attributes, {
@@ -67,7 +67,7 @@ class TestInterfacesReader(unittest.TestCase):
         """All adapters should validate"""
         reader = InterfacesReader(INF2_PATH)
         adapters = reader.parse_interfaces()
-        self.assertEqual(len(adapters), 1)
+        self.assertEqual(len(adapters), 2)
         for adapter in adapters:
             adapter.validateAll()
         self.assertEqual(adapters[1].attributes, {

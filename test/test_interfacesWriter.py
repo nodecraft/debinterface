@@ -95,7 +95,7 @@ class TestInterfacesWriter(unittest.TestCase):
             'gateway': '192.168.0.254',
             'address': '192.168.0.250',
             'netmask': '255.255.255.0',
-            'dns-nameservers': '8.8.8.8'
+            'dns-nameservers': '8.8.8.8',
         }
 
         expected = [
@@ -105,7 +105,7 @@ class TestInterfacesWriter(unittest.TestCase):
             "netmask 255.255.255.0",
             "broadcast 192.168.0.255",
             "gateway 192.168.0.254",
-            "dns-nameservers 8.8.8.8"
+            "dns-nameservers 8.8.8.8",
             "up ethtool -s eth0 wol g",
         ]
         adapter = NetworkAdapter(options={})
