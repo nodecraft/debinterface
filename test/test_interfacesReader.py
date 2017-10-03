@@ -72,19 +72,16 @@ class TestInterfacesReader(unittest.TestCase):
             adapter.validateAll()
         self.assertEqual(adapters[1].attributes, {
             'addrFam': 'inet',
-            'broadcast': '192.168.0.255',
-            'name': 'eth0',
-            'auto': True,
-            'bridge-opts': {},
-            'up': [],
-            'dns-nameservers': ['8.8.8.8', '8.8.4.4', '4.2.2.2'],
-            'gateway': '192.168.0.254',
-            'down': [],
+            'name': 'eth2',
             'source': 'static',
+            'bridge-opts': {},
+            'dns-nameservers': ['8.8.8.8', '8.8.4.4', '4.2.2.2'],
             'netmask': '255.255.255.0',
-            'address': '192.168.0.251',
+            'address': '10.1.20.10',
+            'up': [],
+            'down': [],
             'pre-up': [],
-            'post-down': [],
+            'pre-down': [],
             'post-up': [],
-            'pre-down': []
+            'post-down': []
         })
