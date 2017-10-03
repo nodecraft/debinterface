@@ -36,7 +36,7 @@ class TestInterfacesReader(unittest.TestCase):
             None
         )
         self.assertNotEqual(eth1, None)
-        self.assertEqual(eth1.attributes["dns-nameservers"], ["8.8.8.8"])
+        self.assertEqual(eth1.attributes["dns-nameservers"], "8.8.8.8")
 
     def test_interfaces2(self):
         """All adapters should validate"""
