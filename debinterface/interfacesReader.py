@@ -82,7 +82,11 @@ class InterfacesReader(object):
             elif sline[0] == 'hostapd':
                 self._adapters[self._context].setHostapd(sline[1])
             elif sline[0] == 'dns-nameservers':
-                self._adapters[self._context].setDnsNameservers(sline[1])
+                nameservers = sline
+                del nameservers[0]
+                if len(nameservers) == 1:
+                    nameservers = nameservers[0]
+                self._adapters[self._context].setDnsNameservers(nameservers)
             elif sline[0].startswith('bridge') is True:
                 opt = sline[0].split('_')
                 sline.pop(0)

@@ -36,7 +36,7 @@ VALID_OPTS = {
     "oneshot": {"in": ["on", "off"]},
     "berr": {"in": ["on", "off"]},
     'bridge-opts': {'type': dict},
-    'dns-nameservers': {'type': 'IP'},
+    'dns-nameservers': {'type': 'IPList'},
     "mode": {"in": ["GRE", "IPIP"]},
     'scope': {'in': ['global', 'link', 'host', 'site', 'host']},
     'addrFam': {'in': ['inet', 'inet6', 'ipx', 'can']},
@@ -151,6 +151,12 @@ class NetworkAdapterValidation(object):
         if 'type' in validations:
             if validations['type'] == 'IP':
                 self.validate_ip(val, opt)
+            elif validations['type'] == 'IPList':
+                if isinstance(val, list):
+                    for ip in val:
+                        self.validate_ip(ip, opt)
+                else:
+                    self.validate_ip(val, opt)
             elif validations["type"] == "BROADCAST_IP":
                 self.validate_broadcast_ip(val, opt)
             else:

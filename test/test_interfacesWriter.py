@@ -95,6 +95,7 @@ class TestInterfacesWriter(unittest.TestCase):
             'gateway': '192.168.0.254',
             'address': '192.168.0.250',
             'netmask': '255.255.255.0',
+            'dns-nameservers': ['8.8.8.8'],
         }
 
         expected = [
@@ -104,7 +105,42 @@ class TestInterfacesWriter(unittest.TestCase):
             "netmask 255.255.255.0",
             "broadcast 192.168.0.255",
             "gateway 192.168.0.254",
+            "dns-nameservers 8.8.8.8",
             "up ethtool -s eth0 wol g",
+        ]
+        adapter = NetworkAdapter(options={})
+        adapter._ifAttributes = options
+        with tempfile.NamedTemporaryFile() as tempf:
+            writer = InterfacesWriter([adapter], tempf.name)
+            writer.write_interfaces()
+
+            content = open(tempf.name).read().split("\n")
+            for line_written, line_expected in zip(content, expected):
+                self.assertEqual(line_written.strip(), line_expected)
+
+    def test_multiDns_write(self):
+        """Should work"""
+
+        options = {
+            'addrFam': 'inet',
+            'broadcast': '192.168.0.255',
+            'source': 'static',
+            'name': 'eth0',
+            'auto': True,
+            'gateway': '192.168.0.254',
+            'address': '192.168.0.250',
+            'netmask': '255.255.255.0',
+            'dns-nameservers': ['8.8.8.8', '8.8.4.4', '4.2.2.2']
+        }
+
+        expected = [
+            "auto eth0",
+            "iface eth0 inet static",
+            "address 192.168.0.250",
+            "netmask 255.255.255.0",
+            "broadcast 192.168.0.255",
+            "gateway 192.168.0.254",
+            "dns-nameservers 8.8.8.8 8.8.4.4 4.2.2.2",
         ]
         adapter = NetworkAdapter(options={})
         adapter._ifAttributes = options

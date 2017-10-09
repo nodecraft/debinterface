@@ -42,7 +42,7 @@ class TestInterfacesReader(unittest.TestCase):
         """All adapters should validate"""
         reader = InterfacesReader(INF2_PATH)
         adapters = reader.parse_interfaces()
-        self.assertEqual(len(adapters), 1)
+        self.assertEqual(len(adapters), 2)
         for adapter in adapters:
             adapter.validateAll()
         self.assertEqual(adapters[0].attributes, {
@@ -61,4 +61,27 @@ class TestInterfacesReader(unittest.TestCase):
             'post-down': [],
             'post-up': [],
             'pre-down': []
+        })
+
+    def test_multiDns_read(self):
+        """All adapters should validate"""
+        reader = InterfacesReader(INF2_PATH)
+        adapters = reader.parse_interfaces()
+        self.assertEqual(len(adapters), 2)
+        for adapter in adapters:
+            adapter.validateAll()
+        self.assertEqual(adapters[1].attributes, {
+            'addrFam': 'inet',
+            'name': 'eth2',
+            'source': 'static',
+            'bridge-opts': {},
+            'dns-nameservers': ['8.8.8.8', '8.8.4.4', '4.2.2.2'],
+            'netmask': '255.255.255.0',
+            'address': '10.1.20.10',
+            'up': [],
+            'down': [],
+            'pre-up': [],
+            'pre-down': [],
+            'post-up': [],
+            'post-down': []
         })

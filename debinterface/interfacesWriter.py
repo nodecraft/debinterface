@@ -150,7 +150,11 @@ class InterfacesWriter(object):
             try:
                 value = ifAttributes[field]
                 if value and value != 'None':
-                    d = dict(varient=field, value=ifAttributes[field])
+                    if isinstance(value, list):
+                        d = dict(varient=field,
+                                 value=" ".join(ifAttributes[field]))
+                    else:
+                        d = dict(varient=field, value=ifAttributes[field])
                     interfaces.write(self._cmd.substitute(d))
             # Keep going if a field isn't provided.
             except KeyError:
