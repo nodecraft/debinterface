@@ -22,7 +22,7 @@ class InterfacesWriter(object):
         'gateway', 'dns-nameservers'
     ]
     _prepFields = ['pre-up', 'up', 'down', 'pre-down', 'post-down']
-    _bridgeFields = ['ports', 'fd', 'hello', 'maxage', 'stp']
+    _bridgeFields = ['ports', 'fd', 'hello', 'maxage', 'stp', 'maxwait']
     _plugins = ["hostapd"]
 
     def __init__(self, adapters, interfaces_path, backup_path=None):

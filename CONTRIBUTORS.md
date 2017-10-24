@@ -6,3 +6,4 @@
 * Julian Scheel https://github.com/julianscheel
 * mchubby https://github.com/mchubby
 * Jude188 https://github.com/Jude188
+* Mike O'Driscoll https://github.com/mikeodr
