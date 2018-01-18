@@ -52,4 +52,4 @@ Run the tests
 .. sourcecode:: shell
 
     pip install -r requirements_dev.txt
-    tox
+    py.test --cov=debinterface test
