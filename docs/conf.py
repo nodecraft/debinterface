@@ -76,7 +76,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Debinterface'
-copyright = u'2016, Nathan Mustaki'
+copyright = u'2018, Nathan Mustaki'
 author = u'Douglas Greenbaum, Nathan Mustaki'
 
 # The version info for the project you're documenting, acts as replacement for
