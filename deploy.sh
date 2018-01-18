@@ -6,7 +6,7 @@ echo "    - debinterface/__init__.py"
 echo "    - setup.py"
 
 # Test
-tox
+py.test --cov=debinterface test
 
 # Cleanup
 rm -rf debinterface.egg-info
