@@ -44,3 +44,12 @@ Example usage
     # By defaults, interfaces file is read when instanciating the Interfaces class, to do it lazyly:
     interfaces = debinterface.Interfaces(update_adapters=False)
     interfaces.updateAdapters()
+
+
+Run the tests
+-------------
+
+.. sourcecode:: shell
+
+    pip install -r requirements_dev.txt
+    tox
