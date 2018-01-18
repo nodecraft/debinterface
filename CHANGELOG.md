@@ -3,10 +3,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 From http://keepachangelog.com
 
+## 3.2.1 - 2018-01-18
+### Fixed
+- Bug with new ability to add comments
+
+
 ## 3.2.0 - 2018-01-18
 ### Added
-- Add ability to provide header comments, added parsing of 'dns-search' (thanks @mikeodr)
-- Adding missing option 'bridge_maxwait' to interfaces writer.  (thanks @mikeodr)
+- Ability to provide header comments (thanks @mikeodr)
+- Parsing of 'dns-search' (thanks @mikeodr)
+- Adding missing option 'bridge_maxwait' to interfaces writer. (thanks @mikeodr)
 
 ### Fixed
 - Only one DNS IP was being read or written by the library. (thanks @Jude188)

@@ -34,6 +34,7 @@ class Interfaces(object):
             self.updateAdapters()
         else:
             self._adapters = []
+        self._header_comment = header_comment
 
     @property
     def adapters(self):
@@ -64,7 +65,7 @@ class Interfaces(object):
             self._adapters,
             self._interfaces_path,
             self._backup_path,
-            self._header_comments
+            self._header_comment
         ).write_interfaces()
 
     def getAdapter(self, name):
@@ -150,7 +151,7 @@ class Interfaces(object):
         return toolutils.safe_subprocess(["/sbin/ifdown", if_name])
 
     def _set_paths(self, interfaces_path, backup_path):
-        """ either use user input or defaults
+        """Either use user input or defaults
 
             Args:
                 interfaces_path (str): path to interfaces file
