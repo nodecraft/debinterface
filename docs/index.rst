@@ -18,6 +18,7 @@ Contents:
    quickstart
    debinterface
    contributing
+   changelog
 
 
 Indices and tables

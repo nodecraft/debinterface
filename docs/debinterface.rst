@@ -1,7 +1,10 @@
-API reference
-=============
+debinterface 
+====================
 
-debinterface.adapter
+Submodules
+----------
+
+debinterface.adapter 
 ---------------------------
 
 .. automodule:: debinterface.adapter
@@ -9,7 +12,7 @@ debinterface.adapter
     :undoc-members:
     :show-inheritance:
 
-debinterface.adapterValidation
+debinterface.adapterValidation 
 -------------------------------------
 
 .. automodule:: debinterface.adapterValidation
@@ -17,7 +20,7 @@ debinterface.adapterValidation
     :undoc-members:
     :show-inheritance:
 
-debinterface.dnsmasqRange
+debinterface.dnsmasqRange 
 --------------------------------
 
 .. automodule:: debinterface.dnsmasqRange
@@ -25,7 +28,7 @@ debinterface.dnsmasqRange
     :undoc-members:
     :show-inheritance:
 
-debinterface.hostapd
+debinterface.hostapd 
 ---------------------------
 
 .. automodule:: debinterface.hostapd
@@ -33,7 +36,7 @@ debinterface.hostapd
     :undoc-members:
     :show-inheritance:
 
-debinterface.interfaces
+debinterface.interfaces 
 ------------------------------
 
 .. automodule:: debinterface.interfaces
@@ -41,7 +44,7 @@ debinterface.interfaces
     :undoc-members:
     :show-inheritance:
 
-debinterface.interfacesReader
+debinterface.interfacesReader 
 ------------------------------------
 
 .. automodule:: debinterface.interfacesReader
@@ -49,7 +52,7 @@ debinterface.interfacesReader
     :undoc-members:
     :show-inheritance:
 
-debinterface.interfacesWriter
+debinterface.interfacesWriter 
 ------------------------------------
 
 .. automodule:: debinterface.interfacesWriter
@@ -57,7 +60,7 @@ debinterface.interfacesWriter
     :undoc-members:
     :show-inheritance:
 
-debinterface.toolutils
+debinterface.toolutils 
 -----------------------------
 
 .. automodule:: debinterface.toolutils
