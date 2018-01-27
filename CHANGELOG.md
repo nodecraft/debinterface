@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 From http://keepachangelog.com
 
+## 3.3.0 - 2018-01-27
+### Added
+- wpa-conf to adapter and reader/writer. (thanks @mikeodr)
+
+### Fixed
+- parsing of options dict as 'bridge-opts' as this is the true attribute
+	 title when reading it back from 'attributes' accessor. (thanks @mikeodr)
+- existing parsing of set_options for dns-search. (thanks @mikeodr)
+
+
 ## 3.2.1 - 2018-01-18
 ### Fixed
 - Bug with new ability to add comments
