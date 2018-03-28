@@ -4,6 +4,7 @@ set -e
 echo "Remember to update version in :"
 echo "    - debinterface/__init__.py"
 echo "    - setup.py"
+echo "    - git tag"
 
 # Test
 py.test --cov=debinterface test
