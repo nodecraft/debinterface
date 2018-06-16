@@ -86,14 +86,20 @@ class InterfacesWriter(object):
             return
 
         if interfaces_path == "/etc/network/interfaces":
+            # Do not use long form to increase portability with Busybox
+            # -n : print out what would happen, but don't do it
+            # -i : interfaces file
             ret, output = toolutils.safe_subprocess([
-                "/sbin/ifup", "-a", "--no-act"
+                "/sbin/ifup", "-a", "-n"
             ])
         else:
             for adapter in self._adapters:
+                # Do not use long form to increase portability with Busybox
+                # -n : print out what would happen, but don't do it
+                # -i : interfaces file
                 ret, output = toolutils.safe_subprocess([
-                    "/sbin/ifup", "--no-act",
-                    "--interfaces={0}".format(interfaces_path),
+                    "/sbin/ifup", "-n",
+                    "-i{0}".format(interfaces_path),
                     adapter.attributes["name"]
                 ])
                 if not ret:
