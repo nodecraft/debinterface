@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 From http://keepachangelog.com
 
+## 3.4.0 - 2018-06-16
+### Fixed
+- Add missing post-up handling (thansk @patrickcjh)
+- Increased portability using short args (thanks @lucascoelhof)
+
+
 ## 3.3.0 - 2018-01-27
 ### Added
 - wpa-conf to adapter and reader/writer. (thanks @mikeodr)

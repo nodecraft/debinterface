@@ -7,3 +7,5 @@
 * mchubby https://github.com/mchubby
 * Jude188 https://github.com/Jude188
 * Mike O'Driscoll https://github.com/mikeodr
+* Patrick Chin https://github.com/patrickcjh
+* Lucas Coelho Figueiredo https://github.com/lucascoelhof

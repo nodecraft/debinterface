@@ -9,7 +9,7 @@ from .interfaces import Interfaces
 from .interfacesReader import InterfacesReader
 from .interfacesWriter import InterfacesWriter
 
-__version__ = '3.3.0'
+__version__ = '3.4.0'
 
 __all__ = [
     'NetworkAdapter',
