@@ -364,16 +364,38 @@ class NetworkAdapter(object):
         """
         self._ensure_list(self._ifAttributes, "pre-down", cmd)
 
+    def setPostUp(self, post):
+        """Set and add to the post-up commands for an interface.
+
+            Args:
+                post (list): list of shell commands
+        """
+        if isinstance(post, list):
+            self._ifAttributes['post-up'] = post
+        else:
+            self._ifAttributes['post-up'] = [post]
+
+    def appendPostUp(self, cmd):
+        """Append a shell command to run when the interface is post-up.
+
+            Args:
+                cmd (str): a shell command
+        """
+        self._ensure_list(self._ifAttributes, "post-up", cmd)
+
     def setPostDown(self, post):
         """Set and add to the post-down commands for an interface.
 
             Args:
                 post (list): list of shell commands
         """
-        self._ifAttributes['post-down'] = post
+        if isinstance(post, list):
+            self._ifAttributes['post-down'] = post
+        else:
+            self._ifAttributes['post-down'] = [post]
 
     def appendPostDown(self, cmd):
-        """Append a shell command to run when the interface is pre-down.
+        """Append a shell command to run when the interface is post-down.
 
             Args:
                 cmd (str): a shell command
@@ -488,6 +510,7 @@ class NetworkAdapter(object):
                     'down': self.setDown,
                     'pre-up': self.setPreUp,
                     'pre-down': self.setPreDown,
+                    'post-up': self.setPostUp,
                     'post-down': self.setPostDown,
                     'hostapd': self.setHostapd,
                     'dns-nameservers': self.setDnsNameservers,

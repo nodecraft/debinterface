@@ -117,6 +117,7 @@ class InterfacesReader(object):
                   or sline[0] == 'down'
                   or sline[0] == 'pre-up'
                   or sline[0] == 'pre-down'
+                  or sline[0] == 'post-up'
                   or sline[0] == 'post-down'):
                 ud = sline.pop(0)
                 cmd = ' '.join(sline)
@@ -128,6 +129,8 @@ class InterfacesReader(object):
                     self._adapters[self._context].appendPreUp(cmd)
                 elif ud == 'pre-down':
                     self._adapters[self._context].appendPreDown(cmd)
+                elif ud == 'post-up':
+                    self._adapters[self._context].appendPostUp(cmd)
                 elif ud == 'post-down':
                     self._adapters[self._context].appendPostDown(cmd)
             else:

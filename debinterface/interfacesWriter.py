@@ -22,7 +22,7 @@ class InterfacesWriter(object):
         'address', 'network', 'netmask', 'broadcast',
         'gateway', 'dns-nameservers', 'dns-search'
     ]
-    _prepFields = ['pre-up', 'up', 'down', 'pre-down', 'post-down']
+    _prepFields = ['pre-up', 'pre-down', 'up', 'down', 'post-up', 'post-down']
     _bridgeFields = ['ports', 'fd', 'hello', 'maxage', 'stp', 'maxwait']
     _plugins = ['hostapd', 'wpa-conf']
 
@@ -207,7 +207,9 @@ class InterfacesWriter(object):
                 pass
 
     def _write_callbacks(self, interfaces, adapter, ifAttributes):
-        """ Write the up, down, pre-up, and post-down clauses. """
+        """ Write the up, down, pre-up, pre-down, post-up, and post-down
+            clauses.
+        """
         for field in self._prepFields:
             try:
                 for item in ifAttributes[field]:
