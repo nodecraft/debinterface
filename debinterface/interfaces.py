@@ -59,14 +59,14 @@ class Interfaces(object):
         if not self._adapters:
             self._adapters = []
 
-    def writeInterfaces(self):
+    def writeInterfaces(self, validation=True):
         """ write adapters to interfaces file """
         return InterfacesWriter(
             self._adapters,
             self._interfaces_path,
             self._backup_path,
             self._header_comment
-        ).write_interfaces()
+        ).write_interfaces(validation=validation)
 
     def getAdapter(self, name):
         """ Find adapter by interface name
