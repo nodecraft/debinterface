@@ -50,7 +50,7 @@ class InterfacesWriter(object):
     def adapters(self, value):
         self._adapters = value
 
-    def write_interfaces(self):
+    def write_interfaces(self, validation=True):
         # Back up the old interfaces file.
         self._backup_interfaces()
 
@@ -64,7 +64,8 @@ class InterfacesWriter(object):
                 for adapter in self._adapters:
                     # Get dict of details about the adapter.
                     self._write_adapter(interfaces, adapter)
-            self._check_interfaces(self._interfaces_path)
+            if validation:
+                self._check_interfaces(self._interfaces_path)
         except Exception:
             # Any error, let's roll back
             self._restore_interfaces()
