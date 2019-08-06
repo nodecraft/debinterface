@@ -2,7 +2,7 @@
 # A class representing the contents of /etc/network/interfaces
 from __future__ import print_function, with_statement, absolute_import
 from .adapter import NetworkAdapter
-
+import ipaddress
 
 class InterfacesReader(object):
     """ Short lived class to read interfaces file """
@@ -37,6 +37,10 @@ class InterfacesReader(object):
             for adapter in self._adapters:
                 if adapter.attributes['name'] == entry:
                     adapter.setHotplug(True)
+
+        for adapter in self._adapters:                  # XXX_NODECRAFT
+            if 'nodecraft_cidr' in adapter.attributes:
+                adapter.split_nodecraft_cidr_address()
 
         return self._adapters
 
@@ -84,7 +88,22 @@ class InterfacesReader(object):
         if line[0].isspace() is True:
             sline = [x.strip() for x in line.split()]
 
+            """ NODECRAFT_CIDR_HANDLER 
+                If there is CIDR in the address, save the info about it, and then
+                generate synthetic network / netmask attributes later.
+            """
             if sline[0] == 'address':
+                if '/' in sline[1]:
+                    ar = sline[1].split('/')
+                    if len(ar) == 2:
+                        # self._adapters[self._context].setNodecraftOriginalCIDRAddress(sline[1])
+                        # self._ifAttributes['address'] = ip_address
+                        addr = ipaddress.IPv4Interface(unicode(sline[1]))
+                        network = addr.network
+                        self._adapters[self._context].set_nodecraft_original_cidr_address(sline[1])
+                        sline[1] = ar[0]
+                    pass
+
                 self._adapters[self._context].setAddress(sline[1])
             elif sline[0] == 'netmask':
                 self._adapters[self._context].setNetmask(sline[1])

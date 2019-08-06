@@ -9,6 +9,7 @@ from __future__ import print_function, with_statement, absolute_import
 import socket
 import warnings
 from .adapterValidation import NetworkAdapterValidation, VALID_OPTS
+import ipaddress
 
 
 class NetworkAdapter(object):
@@ -551,3 +552,18 @@ class NetworkAdapter(object):
             dic[key] += value
         else:
             dic[key].append(value)
+
+    def set_nodecraft_original_cidr_address(self, cidr):    # XXX_NODECRAFT
+        self._ifAttributes['nodecraft_cidr'] = cidr
+
+    def split_nodecraft_cidr_address(self):                 # XXX_NODECRAFT
+        if 'nodecraft_cidr' in self._ifAttributes:
+            cidr = self._ifAttributes['nodecraft_cidr']
+            if '/' in cidr:
+                ar = cidr.split('/')
+                if len(ar) == 2:
+                    addr = ipaddress.IPv4Interface(unicode(cidr))
+                    network = addr.network.network_address
+                    netmask = addr.netmask
+                    self.setNetwork(str(network))
+                    self.setNetmask(str(netmask))
